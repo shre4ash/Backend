@@ -1,14 +1,18 @@
 <html>
 <script>
 function populateDiv(){
-   //shreyash
+    const a = document.getElementById("firstNumber").value;//used to get internal value of input Box
+    const b = document.getElementById("secondNumber").value;
    const element = document.getElementById("finalSum")
-   console.log(element)
+   element.innerHTML = parseInt(a) + parseInt(b);
+   // parseInt is global variable which convert string into nuumber
+   //string => number
+   // "11111" => 1111
 }
-</script>
+</script>    
     <body>
-        <input type="text" placeholder="First number"></input><br> <br>
-        <input type="text" placeholder="Second number"></input><br><br>
+        <input id="firstNumber" type="text" placeholder="First number"></input><br> <br>
+        <input id="secondNumber" type="text" placeholder="Second number"></input><br><br>
         <button onclick="populateDiv()">Calculate Sum</button><br><br> 
         <div id="finalSum"></div>
     </body>
