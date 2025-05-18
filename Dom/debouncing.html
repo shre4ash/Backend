@@ -1,0 +1,38 @@
+<html>
+        <script>
+
+            // once 
+            let timeout;
+            function debouncePopulateDiv(){
+                // delay the call to populateDiV()  until ive not been called for 100ms
+                // and i've been called atleast once 
+                clearTimeout(timeout);
+                timeout = setTimeout(function (){
+                    populateDiv()
+                }, 100);
+
+                // clearTimeout(timeout)
+            }
+            function populateDiv(){
+                // debounsing
+                const a = document.getElementById("firstNumber").value;
+                const b = document.getElementById("secondNumber").value;
+                // fetch
+                fetch("http://127.0.0.1:5500/Backend/Dom/debouncing.html?a=" + a + "&b=" + b)
+                .then(function(responce){
+                    // console.log(responce);
+
+                    responce.text()
+                       .then(function(ans){
+                        // console.log(ans);
+                         document.getElementById("finalSum").innerHTML = ans;
+                       })
+                });
+            }
+        </script>
+    <body>
+        <input id="firstNumber" type="text" placeholder="First number"></input><br><br>
+        <input id="secondNumber" type="text" placeholder="Second number"> </input> <br><br>
+        <div id="finalSum"></div>
+    </body>
+</html>
