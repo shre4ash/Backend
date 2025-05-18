@@ -14,6 +14,19 @@
                          document.getElementById("finalSum").innerHTML = ans;
                        })
                 });
+
+
+             // clener async await function to do exact what the upper functions do
+
+             async function populateDiv2(){
+                const a = doucument.getElementById("firstNumber").value
+                const b = doucument.getElementById("secondNumber").value
+
+                const responce = await fetch("http://127.0.0.1:5500/Backend/Dom/hitingServer.html?a=" a + "&b=" + b);
+                const ans = await responce.text();
+                document.getElementById("finalSum").innerHTML = ans;
+             }
+
             }
         </script>
     <body>
