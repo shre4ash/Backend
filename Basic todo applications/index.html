@@ -5,7 +5,8 @@
     function addTodo(){
         const title = document.getElementById("title").value;
         const description = document.getElementById("description").value;
-        const originalHtml=  document.getElementById("container").innerHTML;
+        const childDiv = document.createElement("div");
+        // const outerDiv =  document.createElement("div");//<div>
         
         // UGLY WAY TO this or synatx
         // document.getElementById("container").innerHTML = originalHtml + `
@@ -14,14 +15,15 @@
         //     <div>${description}</div>
         //     <button>marks as done</button>
         //     </div>
-        //     `
+        //     `.
 
 
         // MORE CLEANER WAY TO THIS 
         // document.createElement
-        const outerDiv = document.createElement("div"); // <div></diV>
+      // <div></diV>
             outerDiv.innerHTML = title;
-            document.getElementById("container").appendchiled(outerDiv);
+            // document.getElementById("container").appendChild(outerDiv);
+            document.getElementById("container").appendChild(childDiv);
     }
 </script>
     <div>
@@ -29,10 +31,11 @@
         <input id="description" type="text" placeholder="discription"> <br> <br>
 
         <button onclick="addTodo()"> Add Todo</button>
-        <!-- <div id="container">
+        <div id="container">
             
-            <button>Mark as done</button>
-        </div> -->
+            
+             <!-- <button>Mark as done</button>
+       </div>  -->
     </div>
 
 </html>
